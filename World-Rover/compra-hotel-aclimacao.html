@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Reserva de Hotel</title>
+
+    <script src="https://kit.fontawesome.com/62d9fdcc71.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 0;
+            margin: 0;
+        }
+
+        /*CABEÇARIO*/
+
+        header {
+            z-index: 1;
+            position: fixed;
+            display: flex;
+            width: 100%;
+            height: 100px;
+            background-color: black;
+            align-items: center;
+            padding: 5px;
+            gap: 425px;
+            box-shadow: 3px 1px 20px;
+            margin-bottom: 100px;
+        }
+
+        .logo a {
+            text-decoration: none;
+        }
+
+        .sobre-guia-login {
+            display: flex;
+            gap: 200px;
+        }
+
+
+        .sobre-guia-login a {
+            text-decoration: none;
+            color: #f0f0f0;
+            transition: color 0.3s ease;
+        }
+
+        .sobre-guia-login a:hover {
+            color: #dddddd;
+        }
+
+        .marca {
+            display: flex;
+            color: #F0F0F0;
+            align-items: center;
+            font-family: "Playfair Display";
+        }
+
+        .cart a {
+            text-decoration: none;
+            color: #f0f0f0;
+            transition: color 0.3s ease;
+        }
+
+        .cart a:hover {
+            color: #dddddd;
+        }
+
+        /*COMPRA*/
+
+        .box {
+            padding-top: 200px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            margin-top: 10px;
+            display: block;
+        }
+
+        input {
+            width: 95%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #001885;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056a7;
+        }
+
+        #totalCost {
+            margin-top: 20px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        /* Message Styles */
+        .message {
+            display: none;
+            position: fixed;
+            z-index: 2;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            text-align: center;
+            padding-top: 10%;
+            /* Ajusta a posição vertical */
+        }
+
+        .message-content {
+            margin-top: 200px;
+            background-color: #4CAF50;
+            /* Cor de fundo do quadrado */
+            padding: 40px;
+            /* Aumenta o padding */
+            border-radius: 8px;
+            display: inline-block;
+            /* Permite centralizar o conteúdo */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            /* Define uma largura fixa */
+        }
+
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+            <a href="index.html">
+                <h2 class="marca"> <img src="img/logo-WRlogo.png" width="110px">| WorldRover</h2>
+            </a>
+        </div>
+
+        <div class="sobre-guia-login">
+
+            <h3><a href="/pagina-sobre/sobre.html"><i class="fa-solid fa-book-open fa-lg"></i> Sobre</i></a></h2>
+                <h3><a href="#"><i class="fa-solid fa-compass fa-lg"></i> Guia</i></a></h2>
+                    <h3><a href="pagina-login/login.html"><i class="fa-solid fa-user-group fa-lg"></i> Login</i></a>
+                        </h2>
+
+        </div>
+
+        <h3 class="cart"><a href="#"><i class="fa-solid fa-cart-flatbed fa-lg"></i> Salvos</a></h3>
+
+    </header>
+
+    <div class="box">
+        <div class="container">
+            <h1>Reserva de Hotel</h1>
+            <form id="reservationForm">
+                <label for="checkIn">Data de Check-in:</label>
+                <input type="date" id="checkIn" required oninput="resetCalculateButton()">
+
+                <label for="checkOut">Data de Check-out:</label>
+                <input type="date" id="checkOut" required oninput="resetCalculateButton()">
+
+                <label for="people">Quantidade de Pessoas:</label>
+                <input type="number" id="people" min="1" value="1" required oninput="resetCalculateButton()">
+
+                <label for="rooms">Quantidade de Quartos:</label>
+                <input type="number" id="rooms" min="1" value="1" required oninput="resetCalculateButton()">
+
+                <button type="button" id="calculateButton" onclick="calculateTotal()">Calcular Total</button>
+                <button id="confirmButton" style="display: none;" onclick="confirmPurchase()">Confirmar Compra</button>
+            </form>
+            <div id="totalCost"></div>
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+        </div>
+    </div>
+
+    <!-- Message -->
+    <div id="message" class="message" onclick="closeMessage()">
+        <div class="message-content">
+            <h2>Compra Aprovada!</h2>
+            <p>Obrigado por escolher nosso hotel!</p>
+            <p>Data de Check-in: <span id="displayCheckIn"></span></p>
+            <p>Data de Check-out: <span id="displayCheckOut"></span></p>
+            <p>Quantidade de Pessoas: <span id="displayPeople"></span></p>
+            <p>Quantidade de Quartos: <span id="displayRooms"></span></p>
+        </div>
+    </div>
+
+    <script>
+        function calculateTotal() {
+            const checkIn = document.getElementById('checkIn').value;
+            const checkOut = document.getElementById('checkOut').value;
+            const people = parseInt(document.getElementById('people').value);
+            const rooms = parseInt(document.getElementById('rooms').value);
+
+            // Verifica se as datas estão preenchidas
+            if (!checkIn || !checkOut) {
+                document.getElementById('errorMessage').innerText = 'Por favor, preencha as datas.';
+                document.getElementById('errorMessage').style.display = 'block';
+                return;
+            }
+
+            // Calcular a quantidade de dias
+            const checkInDate = new Date(checkIn);
+            const checkOutDate = new Date(checkOut);
+            const timeDiff = checkOutDate - checkInDate;
+            const days = timeDiff / (1000 * 3600 * 24);
+
+            // Definir preço por quarto por dia
+            const pricePerRoomPerDay = 210; // Exemplo: R$210 por quarto por dia
+            const totalCost = days * pricePerRoomPerDay * rooms;
+
+            // Mostrar resultado
+            document.getElementById('totalCost').innerText = `Custo Total: R$ ${totalCost.toFixed(2)}`;
+            document.getElementById('confirmButton').style.display = 'block'; // Exibir botão de confirmação
+            document.getElementById('calculateButton').style.display = 'none'; // Esconder botão de calcular
+            document.getElementById('errorMessage').style.display = 'none'; // Esconder mensagem de erro
+        }
+
+        function confirmPurchase() {
+            const checkIn = document.getElementById('checkIn').value;
+            const checkOut = document.getElementById('checkOut').value;
+            const people = document.getElementById('people').value;
+            const rooms = document.getElementById('rooms').value;
+
+            // Verifica se as datas estão preenchidas
+            if (!checkIn || !checkOut) {
+                document.getElementById('errorMessage').innerText = 'Por favor, preencha os campos necessários antes de confirmar a compra.';
+                document.getElementById('errorMessage').style.display = 'block';
+                return;
+            }
+
+            // Atualiza os dados na mensagem
+            document.getElementById('displayCheckIn').innerText = checkIn;
+            document.getElementById('displayCheckOut').innerText = checkOut;
+            document.getElementById('displayPeople').innerText = people;
+            document.getElementById('displayRooms').innerText = rooms;
+
+            document.getElementById('message').style.display = 'block';
+            document.getElementById('confirmButton').style.display = 'none'; // Esconder botão após confirmação
+            document.getElementById('totalCost').innerText = ''; // Limpar total
+            document.getElementById('reservationForm').reset(); // Resetar o formulário
+        }
+
+        function closeMessage() {
+            document.getElementById('message').style.display = 'none';
+        }
+
+        function resetCalculateButton() {
+            document.getElementById('calculateButton').style.display = 'block'; // Mostrar botão de calcular
+            document.getElementById('confirmButton').style.display = 'none'; // Esconder botão de confirmação
+            document.getElementById('totalCost').innerText = ''; // Limpar total
+            document.getElementById('errorMessage').style.display = 'none'; // Esconder mensagem de erro
+        }
+    </script>
+</body>
+
+</html>

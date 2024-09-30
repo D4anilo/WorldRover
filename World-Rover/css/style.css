@@ -1,0 +1,401 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+/*CABEÇALHO*/
+
+header {
+  z-index: 1;
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: 100px;
+  background-color: black;
+  align-items: center;
+  padding: 5px;
+  gap: 425px;
+  box-shadow: 3px 1px 20px;
+}
+
+.logo a {
+  text-decoration: none;
+}
+
+.sobre-guia-login {
+  display: flex;
+  gap: 200px;
+}
+
+.sobre-guia-login a {
+  text-decoration: none;
+  color: #f0f0f0;
+  transition: color 0.3s ease;
+}
+
+.sobre-guia-login a:hover {
+  color: #dddddd;
+}
+
+.marca {
+  display: flex;
+  color: #f0f0f0;
+  align-items: center;
+  font-family: "Playfair Display";
+}
+
+.cart a {
+  text-decoration: none;
+  color: #f0f0f0;
+  transition: color 0.3s ease;
+}
+
+.cart a:hover {
+  color: #dddddd;
+}
+
+/*INTRODUÇÃO*/
+
+.busca {
+  background-color: rgba(255, 255, 255, 0.322);
+  color: #f0f0f0;
+  width: 240px;
+  height: 40px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.busca::placeholder {
+  color: #f0f0f0;
+}
+
+nav {
+  padding-top: 110px;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0),
+      rgb(0, 0, 0)
+    ),
+    url("/img/busca-img.jpeg");
+  height: 500px;
+  text-align: center;
+}
+
+.box {
+  position: relative;
+  width: 160px;
+  height: 40px;
+  padding-left: 25px;
+  padding-top: 25px;
+}
+
+.box input {
+  padding-left: 30px;
+}
+
+.box i {
+  color: #f0f0f0;
+  position: absolute;
+  left: 35px;
+  top: 60%;
+  transform: translateY(-50%);
+}
+
+.slogan {
+  color: #f0f0f0;
+  width: 750px;
+  display: inline-block;
+  margin-top: 50px;
+  font-size: xx-large;
+}
+
+/*CARDS DOS MAIS POPULARES*/
+
+.carrossel {
+  overflow: hidden;
+  margin-top: 30px;
+  padding-left: 30px;
+}
+
+.container {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.block {
+  flex: 0 0 25%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.card01 {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 10px;
+  padding: 10px;
+  height: 380px;
+  width: 325px;
+  border-radius: 15px;
+  background-image: url(../img/hotel01.jpg);
+  background-position: -130px -20px;
+}
+
+.card02 {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 10px;
+  padding: 10px;
+  height: 380px;
+  width: 325px;
+  border-radius: 15px;
+  background-image: url(../img/hotel02.jpg);
+  background-position: -155px 0px;
+}
+
+.card03 {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 10px;
+  padding: 10px;
+  height: 380px;
+  width: 325px;
+  border-radius: 15px;
+  background-image: url(../img/hotel03.jpg);
+  background-position: -60px -10px;
+}
+
+.card04 {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 10px;
+  padding: 10px;
+  height: 380px;
+  width: 325px;
+  border-radius: 15px;
+  background-image: url(../img/hotel04.jpg);
+  background-position: -220px -110px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 300px;
+  height: 75px;
+}
+
+.block h2 {
+  margin: 0;
+  margin-top: 15px;
+}
+
+main h1 {
+  margin-top: 100px;
+  margin-left: 60px;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #060047;
+  color: #f0f0f0;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.4s ease-in-out;
+}
+
+.button:hover {
+  background-color: rgb(46, 28, 209);
+}
+
+.like {
+  width: 50px;
+  height: 50px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  color: #060047;
+  cursor: pointer;
+}
+
+.like i {
+  transition: color 0.3s ease;
+}
+
+.prev,
+.next {
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  top: 110%;
+  transform: translateY(-50%);
+  background-color: black;
+  color: #f0f0f0;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.prev {
+  left: 20px;
+}
+
+.next {
+  right: 10px;
+}
+
+/*BAIRROS MAIS BUSCADOS*/
+
+.list {
+  width: 1200px;
+  height: 400px;
+  background-color: #dddddd;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  filter: drop-shadow(0px 0px 20px #252525);
+}
+
+.list h1 {
+  margin: 0;
+  height: 75px;
+  background-color: #bbbbbb;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.line {
+  width: 250px;
+  height: 50px;
+  background-color: #bbbbbb;
+  color: black;
+  display: grid;
+  align-content: center;
+  margin: 20px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.core i {
+  padding-left: 10px;
+}
+
+.core {
+  margin-top: 25px;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.wp {
+  padding-top: 300px;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0),
+      rgb(240, 240, 240)
+    ),
+    url("/img/populares-img.jpeg");
+}
+
+.banner {
+  height: 800px;
+  margin-top: 150px;
+  margin-bottom: 100px;
+}
+
+/*FOOTER*/
+
+footer {
+  background-color: black;
+  color: #f0f0f0;
+  padding: 30px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+footer h1 {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.termos a {
+  margin: 15px 0;
+  color: #f0f0f0;
+  text-decoration: none;
+}
+
+footer p {
+  margin: 0;
+  margin-top: 25px;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  margin-right: 25px;
+}
+
+.right p {
+  margin-top: 15px;
+  margin-right: 25px;
+  margin-bottom: 135px;
+}
+
+.social-icon {
+  color: #060047;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  text-decoration: none;
+}
+
+/*FACILITADORES*/
+
+.subir {
+  width: 45px;
+  height: 45px;
+  background-color: #f0f0f0;
+  border: 1px solid black;
+  border-radius: 50%;
+  bottom: 30px;
+  left: 1805px;
+  position: fixed;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.8s ease;
+}
+
+.subir i {
+  color: black;
+}
+
+.subir:hover {
+  transform: scale(1.13);
+}

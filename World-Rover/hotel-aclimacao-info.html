@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel1</title>
+
+    <script src="https://kit.fontawesome.com/62d9fdcc71.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #F0F0F0;
+        }
+
+        /*CABEÇALHO*/
+
+        header {
+            z-index: 1;
+            position: fixed;
+            display: flex;
+            width: 100%;
+            height: 100px;
+            background-color: black;
+            align-items: center;
+            padding: 5px;
+            gap: 425px;
+            box-shadow: 3px 1px 20px;
+        }
+
+        .logo a {
+            text-decoration: none;
+        }
+
+        .sobre-guia-login {
+            display: flex;
+            gap: 200px;
+        }
+
+
+        .sobre-guia-login a {
+            text-decoration: none;
+            color: #f0f0f0;
+            transition: color 0.3s ease;
+        }
+
+        .sobre-guia-login a:hover {
+            color: #dddddd;
+        }
+
+        .marca {
+            display: flex;
+            color: #F0F0F0;
+            align-items: center;
+            font-family: "Playfair Display";
+        }
+
+        .cart a {
+            text-decoration: none;
+            color: #f0f0f0;
+            transition: color 0.3s ease;
+        }
+
+        .cart a:hover {
+            color: #dddddd;
+        }
+
+        /* Card Aclimação */
+
+        .container {
+            padding-top: 400px;
+        }
+
+        .card-aclimacao {
+            box-shadow: 5px 8px 15px rgb(192, 192, 192);
+            background-color: #e0e0e0;
+            border-radius: 20px;
+            width: 800px;
+            height: 340px;
+            position: absolute;
+            left: 50%;
+            right: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            gap: 30px;
+            padding: 30px;
+        }
+
+        .img-aclimacao img {
+            width: 400px;
+            border-radius: 10px;
+        }
+
+        .texto-hotel {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .titulo-hotel {
+            font-size: 26px;
+        }
+
+        .local-mapa {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .ver-mapa {
+            transition: background-color 0.3s ease;
+            background-color: #060047;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 13px;
+            width: 100px;
+            height: 36px;
+        }
+
+        .preco {
+            display: flex;
+            justify-content: end;
+            padding-top: 70px;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .ver-diaria {
+            transition: background-color 0.3s ease;
+            background-color: #060047;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 17px;
+            width: 130px;
+            height: 40px;
+        }
+
+        button a {
+            text-decoration: none;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #1404a1;
+        }
+
+        .valor {
+            font-size: 34px;
+        }
+
+        .estrelas {
+            color: rgb(251, 255, 0);
+        }
+
+        /* fotos-info-avaliação */
+
+        .links {
+            text-align: center;
+            margin-top: 300px;
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .links h1 {
+            font-size: 24px;
+            transition: font-size 0.3s;
+            cursor: pointer;
+        }
+
+        .links h1:hover {
+            font-size: 30px;
+            text-decoration: underline;
+        }
+
+        .box-info {
+            display: flex;
+            justify-content: center;
+            padding-bottom: 90px;
+        }
+
+        .info {
+            font-size: 27px;
+            border-radius: 20px;
+            padding-top: 300px;
+            background-color: #e0e0e0;
+            width: 1000px;
+            left: 50%;
+
+            align-items: center;
+            padding: 30px;
+        }
+
+
+        /* footer */
+
+        footer {
+            background-color: black;
+            color: #F0F0F0;
+            padding: 20px;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .left {
+            display: flex;
+            flex-direction: column;
+        }
+
+        footer h1 {
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .termos h3 {
+            margin: 15px 0;
+        }
+
+        footer p {
+            margin: 0;
+            margin-top: 25px;
+        }
+
+        .right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            margin-right: 25px;
+        }
+
+        .right p {
+            margin-top: 15px;
+            margin-right: 25px;
+            margin-bottom: 135px;
+        }
+
+        .social-icon {
+            color: #060047;
+            background-color: #F0F0F0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 100%;
+            text-decoration: none;
+        }
+
+        /*FACILITADORES*/
+
+        .subir {
+            width: 40px;
+            height: 40px;
+            background-color: #f0f0f0;
+            color: #060047;
+            border: 1px solid #ddd;
+            border-radius: 100%;
+            bottom: 30px;
+            left: 1815px;
+            position: fixed;
+            text-decoration: none;
+            box-shadow: 0px 0px 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+            <a href="index.html">
+                <h2 class="marca"> <img src="img/logo-WRlogo.png" width="110px">| WorldRover</h2>
+            </a>
+        </div>
+
+        <div class="sobre-guia-login">
+
+            <h3><a href="/pagina-sobre/sobre.html"><i class="fa-solid fa-book-open fa-lg"></i> Sobre</i></a></h2>
+                <h3><a href="#"><i class="fa-solid fa-compass fa-lg"></i> Guia</i></a></h2>
+                    <h3><a href="pagina-login/login.html"><i class="fa-solid fa-user-group fa-lg"></i> Login</i></a>
+                        </h2>
+
+        </div>
+
+        <h3 class="cart"><a href="#"><i class="fa-solid fa-cart-flatbed fa-lg"></i> Salvos</a></h3>
+
+    </header>
+
+
+    <div class="container">
+
+
+        <!-- compra -->
+
+
+        <div class="card-aclimacao">
+            <div class="img-aclimacao">
+                <img src="imghotelaclimacao/card-hotel01.png">
+            </div>
+
+            <div class="local-hotel-info">
+                <div class="texto-hotel">
+                    <h1 class="titulo-hotel">Ez Aclimação Hotel</h1>
+
+                    <div class="estrelas">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+
+                <div class="local-mapa">
+                    <p>Av.Armado Ferrentini, 668, <br> Vila Mariana, São Paulo</p>
+
+                    <button class="ver-mapa"><a href="">Ver Mapa</a></button>
+                </div>
+
+                <div class="preco">
+                    <h1 class="valor">R$201,00</h1>
+
+                    <button class="ver-diaria"><a href="compra-hotel-aclimacao.html">Ver Diaria</a></button>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- fotos-info-avaliação -->
+
+
+        <div class="links">
+            <a href="hotel-aclimacao-fotos.html">
+                <h1 class="fotos-link">Fotos</h1>
+            </a>
+            <a href="#">
+                <h1 class="info-link">Info</h1>
+            </a>
+            <a href="hotel-aclimacao-avaliacao.html">
+                <h1 class="avali-link">Avaliação</h1>
+            </a>
+        </div>
+
+        <div class="box-info">
+
+
+            <div class="info">
+                <p>No moderno Ez Aclimação Hotel, localizado a pouco mais de um quilômetro da Avenida Paulista, os
+                    hóspedes podem se divertir na piscina e relaxar na sauna. Além disso, os viajantes podem contar com
+                    a praticidade de um transfer gratuito para o Metrô Paraíso e para o Shopping Pátio Paulista. São
+                    três tipos de quartos, que acomodam até quatro pessoas. Todos têm frigobar, micro-ondas, cofre
+                    digital, ar-condicionado e mesa de trabalho, além de Wi-Fi. Recepção 24 horas, academia, sala de
+                    computadores e área de eventos com capacidade para 200 pessoas fazem parte das facilidades
+                    oferecidas pela propriedade. O estacionamento é cobrado à parte. Todas as refeições podem ser feitas
+                    ali mesmo. O Zar Restaurante foca em gastronomia contemporânea, enquanto o Zur Culinária Japonesa
+                    serve pratos orientais. O Ez Aclimação Hotel está situado a cerca de 15 minutos de caminhada do
+                    Parque da Aclimação e do Centro Cultural São Paulo.</p>
+            </div>
+
+        </div>
+
+        <footer>
+            <div class="content">
+                <div class="left">
+                    <h1>WorldRover</h1>
+                    <div class="termos">
+                        <h3>Termos de Serviço</h3>
+                        <h3>Política de Privacidade</h3>
+                        <h3>Sobre Nós</h3>
+                        <h3>Contato</h3>
+                        <p>&copy; 2024 WorldRover. Todos os direitos reservados.</p>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="social-icons">
+
+                        <a href="#" class="social-icon"><i class="fa-brands fa-instagram fa-2x"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-twitter fa-2x"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-whatsapp fa-2x"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook fa-2x"></i></a>
+                    </div>
+                    <p>siga-nos em nossas redes sociais</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre</title>
+
+    <script src="https://kit.fontawesome.com/2572ff7e65.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<style>
+    body {
+        background-color: rgba(190, 185, 179, 0.663);
+        margin: 0px;
+        padding: 0;
+    }
+
+    .efeito {
+        height: 700px;
+        width: auto;
+        padding-top: 10px;
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.125), rgba(240, 240, 240, 0.773)), url(img/cidade.jpg);
+        margin-top: 230px;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    /*CABEÇALHO*/
+    header {
+        display: flex;
+        max-width: 100%;
+        height: 100px;
+        background-color: black;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 5px;
+        gap: 425px;
+        margin-bottom: 100px;
+    }
+
+
+    .sobre-guia-login {
+        display: flex;
+        gap: 200px;
+    }
+
+
+    .sobre-guia-login a {
+        text-decoration: none;
+        color: #F0F0F0;
+        transition: color 0.3s ease;
+    }
+
+    .sobre-guia-login a:hover {
+        color: #dddddd;
+    }
+
+    .marca {
+        display: flex;
+        color: #F0F0F0;
+        align-items: center;
+    }
+
+    .logo a {
+        text-decoration: none;
+    }
+
+    .container {
+        margin-left: 450px;
+        margin-right: 450px;
+        /* border: 1px solid black; */
+    }
+
+    /* Sobre Nós */
+    .sobre-nos {
+        background-color: rgba(255, 248, 248, 0.091);
+        margin-top: 170px;
+        color: #000000;
+        font-size: 17px;
+    }
+
+    .sobre-nos-h2 {
+        text-align: center;
+        font-size: 1.7em;
+        margin-top: 70px;
+    }
+
+    .sobre-nos-p {
+        text-align: justify;
+        margin-left: 200px;
+        margin-right: 200px;
+        font-size: 1.1em;
+        margin-bottom: 70px;
+    }
+
+    /* Quem Somos */
+    .quem-somos {
+        background-color: rgba(154, 204, 231, 0.208);
+        border: 1px solid rgba(0, 0, 0, 0);
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        margin-top: 200px;
+    }
+
+    .quem-somos-h2 {
+        text-align: center;
+        font-size: 1.7em;
+        margin-top: 70px;
+    }
+
+    .quem-somos-p {
+        text-align: justify;
+        margin-left: 200px;
+        margin-right: 200px;
+        margin-bottom: 70px;
+        font-size: 1.1em;
+    }
+
+    /*FOOTER*/
+    footer {
+        height: 300px;
+        background-color: black;
+        color: #F0F0F0;
+        padding: 20px;
+        margin-top: 100px;
+    }
+
+    .content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .left {
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer h1 {
+        margin: 0;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    .termos h3 {
+        margin: 15px 0;
+    }
+
+    footer p {
+        margin: 0;
+        margin-top: 25px;
+    }
+
+    .right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+        margin-right: 25px;
+    }
+
+    .right p {
+        margin: 0;
+        margin-top: 15px;
+        margin-right: 25px;
+        margin-bottom: 135px;
+    }
+
+    .social-icon {
+        color: #060047;
+        background-color: #F0F0F0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        border-radius: 100%;
+        text-decoration: none;
+    }
+</style>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+           <a href="index.html"><h2 class="marca"> <img src="img/logoWRlogo.png" width="110px">| WorldRover</h2></a> 
+        </div>
+
+        <div class="sobre-guia-login">
+            <h3><a href="sobre.html"><i class="fa-solid fa-book-open fa-lg"></i> Sobre</i></a></h2>
+                <h3><a href="#"><i class="fa-solid fa-compass fa-lg"></i> Guia</i></a></h2>
+                    <h3><a href="#"><i class="fa-solid fa-user-group fa-lg"></i> Login</i></a></h2>
+
+        </div>
+
+    </header>
+
+    <div class="container">
+
+        <!-- SObre Nós -->
+        <div class="efeito">
+            <div class="sobre-nos">
+                <h2 class="sobre-nos-h2">Sobre Nós</h2>
+                <br>
+                <p class="sobre-nos-p">Bem-vindo ao WorldRover, a sua referência confiável para encontrar e reservar os
+                    melhores hotéis e acomodações em
+                    São Paulo. Nosso objetivo é proporcionar a você uma experiência de reserva tranquila e eficiente.
+                    Sabemos que cada viagem é única, e por isso oferecemos uma plataforma intuitiva e repleta de
+                    informações detalhadas para ajudá-lo a fazer a escolha certa. Queremos que você tenha a certeza de
+                    que sua estadia será confortável, conveniente e memorável. No WorldRover, acreditamos em um serviço
+                    que valoriza a confiança e a satisfação do cliente. Nossos valores de
+                    integridade, respeito e inovação orientam todas as nossas ações, garantindo que cada aspecto da sua
+                    experiência conosco
+                    seja positivo e gratificante.</p>
+            </div>
+        </div>
+
+        <!-- Quem Somos -->
+        <div class="quem-somos">
+            <h2 class="quem-somos-h2">Quem Somos</h2>
+            <br>
+            <p class="quem-somos-p">Olá! Somos um grupo de alunos com cinco integrantes do Instituto Federal de São
+                Paulo (IFSP) - Campus Caraguatatuba,
+                uma instituição de ensino que se destaca no Litoral Norte de São Paulo pela sua excelência acadêmica e
+                compromisso com a formação de cidadãos comprometidos com o desenvolvimento sustentável e a inovação. Na
+                nossa jornada acadêmica, buscamos não apenas o conhecimento técnico, mas também o desenvolvimento
+                pessoal e a preparação para os desafios do mundo profissional. Participamos ativamente de projetos de
+                extensão, eventos culturais e atividades de pesquisa, o que nos permite aplicar o que aprendemos em sala
+                de aula em situações reais e impactar positivamente nossa região.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="content">
+            <div class="left">
+                <h1>WorldRover</h1>
+                <div class="termos">
+                    <h3>Termos de Serviço</h3>
+                    <h3>Política de Privacidade</h3>
+                    <h3>Sobre Nós</h3>
+                    <h3>Contato</h3>
+                    <p>&copy; 2024 WorldRover. Todos os direitos reservados.</p>
+                </div>
+            </div>
+            <div class="right">
+                <div class="social-icons">
+
+                    <a href="#" class="social-icon"><i class="fa-brands fa-instagram fa-2x"></i></a>
+                    <a href="#" class="social-icon"><i class="fa-brands fa-twitter fa-2x"></i></a>
+                    <a href="#" class="social-icon"><i class="fa-brands fa-whatsapp fa-2x"></i></a>
+                    <a href="#" class="social-icon"><i class="fa-brands fa-facebook fa-2x"></i></a>
+                </div>
+                <p>siga-nos em nossas redes sociais</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

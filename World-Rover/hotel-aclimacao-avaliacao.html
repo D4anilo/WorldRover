@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hotel1</title>
+
+  <script src="https://kit.fontawesome.com/62d9fdcc71.js" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+
+    /* CABEÇALHO */
+    header {
+      z-index: 1;
+      position: fixed;
+      display: flex;
+      width: 100%;
+      height: 100px;
+      background-color: black;
+      align-items: center;
+      padding: 5px;
+      gap: 425px;
+      box-shadow: 3px 1px 20px;
+    }
+
+    .logo a {
+      text-decoration: none;
+    }
+
+    .sobre-guia-login {
+      display: flex;
+      gap: 200px;
+    }
+
+
+    .sobre-guia-login a {
+      text-decoration: none;
+      color: #f0f0f0;
+      transition: color 0.3s ease;
+    }
+
+    .sobre-guia-login a:hover {
+      color: #dddddd;
+    }
+
+    .marca {
+      display: flex;
+      color: #F0F0F0;
+      align-items: center;
+      font-family: "Playfair Display";
+    }
+
+    .cart a {
+      text-decoration: none;
+      color: #f0f0f0;
+      transition: color 0.3s ease;
+    }
+
+    .cart a:hover {
+      color: #dddddd;
+    }
+
+    /* Card Aclimação */
+    .container {
+      padding-top: 400px;
+    }
+
+    .card-aclimacao {
+      box-shadow: 5px 8px 15px rgb(192, 192, 192);
+      background-color: #e0e0e0;
+      border-radius: 20px;
+      width: 800px;
+      height: 340px;
+      position: absolute;
+      left: 50%;
+      right: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      gap: 30px;
+      padding: 30px;
+    }
+
+    .img-aclimacao img {
+      width: 400px;
+      border-radius: 10px;
+    }
+
+    .texto-hotel {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .titulo-hotel {
+      font-size: 26px;
+    }
+
+    .local-mapa {
+      display: flex;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .ver-mapa {
+      transition: background-color 0.3s ease;
+      background-color: #060047;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-weight: bold;
+      font-size: 13px;
+      width: 100px;
+      height: 36px;
+    }
+
+    .preco {
+      display: flex;
+      justify-content: end;
+      padding-top: 70px;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .ver-diaria {
+      transition: background-color 0.3s ease;
+      background-color: #060047;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-weight: bold;
+      font-size: 17px;
+      width: 130px;
+      height: 40px;
+    }
+
+    button a {
+      text-decoration: none;
+      color: white;
+    }
+
+    button:hover {
+      background-color: #1404a1;
+    }
+
+    .valor {
+      font-size: 34px;
+    }
+
+    .estrelas {
+      color: rgb(251, 255, 0);
+    }
+
+    /* fotos-info-avaliação */
+
+    .links {
+      text-align: center;
+      margin-top: 300px;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+    }
+
+    .links a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .links h1 {
+      font-size: 24px;
+      transition: font-size 0.3s;
+      cursor: pointer;
+    }
+
+    .links h1:hover {
+      font-size: 30px;
+      text-decoration: underline;
+    }
+
+
+    /* Avaliações */
+    .avaliacoes {
+      height: 350px;
+    }
+
+    .avaliacoes {
+      background-position: 274px 0px;
+      width: 100%;
+      background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgb(0, 0, 0)), url(imghotelaclimacao/foto-teste.jfif);
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding-top: 270px;
+      font-size: 20px;
+      z-index: -1;
+      color: white;
+    }
+
+    .media-avaliacao {
+      font-size: 65px;
+      margin-top: 10px;
+    }
+
+    .avaliacao-barra {
+      display: flex;
+      align-items: center;
+      margin: 15px 0;
+    }
+
+    .barra-avaliacao {
+      background-color: #ccc;
+      border-radius: 5px;
+      width: 328px;
+      height: 16px;
+      margin-left: 10px;
+      position: relative;
+    }
+
+    .preenchido {
+      background-color: #fbc02d;
+      height: 100%;
+      border-radius: 5px;
+    }
+
+    /* Seção de Comentários */
+    .comentarios {
+      display: flex;
+      justify-content: center;
+      flex-direction: column-reverse;
+      margin-top: 20px;
+      padding-bottom: 150px;
+      text-align: center;
+    }
+
+    .comentario-input {
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .comentario-input input {
+      padding: 10px;
+      width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .comentario-input button {
+      padding: 10px 20px;
+      background-color: #060047;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .comentario-input button:hover {
+      background-color: #1404a1;
+    }
+
+    .lista-comentarios {
+      display: flex;
+      justify-content: center;
+      padding-left: 20px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      text-align: left;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .comentario {
+      width: 600px;
+      background-color: #e0e0e0;
+      padding: 10px;
+      border-radius: 5px;
+      position: relative;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .comentario:hover {
+      background-color: #d0d0d0;
+      transform: scale(1.02);
+    }
+
+    .excluir {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      color: red;
+    }
+
+    /* Avaliação em Estrelas */
+    .avaliacao-estrelas {
+      display: flex;
+      gap: 5px;
+      cursor: pointer;
+      font-size: 28px;
+      color: #ffd900;
+    }
+
+    .avaliacao-estrelas i {
+      transition: transform 0.2s;
+    }
+
+    .avaliacao-estrelas i:hover {
+      transform: scale(1.2);
+    }
+
+    span i {
+      color: #ffee00;
+    }
+
+    /* Footer */
+
+    footer {
+      background-color: black;
+      color: #F0F0F0;
+      padding: 20px;
+    }
+
+    .content {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    footer h1 {
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+
+    .termos h3 {
+      margin: 15px 0;
+    }
+
+    footer p {
+      margin: 0;
+      margin-top: 25px;
+    }
+
+    .right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+      margin-right: 25px;
+    }
+
+    .right p {
+      margin-top: 15px;
+      margin-right: 25px;
+      margin-bottom: 135px;
+    }
+
+    .social-icon {
+      color: #060047;
+      background-color: #F0F0F0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      border-radius: 100%;
+      text-decoration: none;
+    }
+
+    /*FACILITADORES*/
+
+    .subir {
+      width: 40px;
+      height: 40px;
+      background-color: #f0f0f0;
+      color: #060047;
+      border: 1px solid #ddd;
+      border-radius: 100%;
+      bottom: 30px;
+      left: 1815px;
+      position: fixed;
+      text-decoration: none;
+      box-shadow: 0px 0px 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+
+    <div class="logo">
+      <a href="index.html">
+        <h2 class="marca"> <img src="img/logo-WRlogo.png" width="110px">| WorldRover</h2>
+      </a>
+    </div>
+
+    <div class="sobre-guia-login">
+
+      <h3><a href="/pagina-sobre/sobre.html"><i class="fa-solid fa-book-open fa-lg"></i> Sobre</i></a></h2>
+        <h3><a href="#"><i class="fa-solid fa-compass fa-lg"></i> Guia</i></a></h2>
+          <h3><a href="pagina-login/login.html"><i class="fa-solid fa-user-group fa-lg"></i> Login</i></a></h2>
+
+    </div>
+
+    <h3 class="cart"><a href="#"><i class="fa-solid fa-cart-flatbed fa-lg"></i> Salvos</a></h3>
+
+  </header>
+
+
+  <div class="container">
+    <div class="card-aclimacao">
+      <div class="img-aclimacao">
+        <img src="imghotelaclimacao/card-hotel01.png">
+      </div>
+      <div class="local-hotel-info">
+        <div class="texto-hotel">
+          <h1 class="titulo-hotel">Ez Aclimação Hotel</h1>
+          <div class="estrelas">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+        <div class="local-mapa">
+          <p>Av.Armado Ferrentini, 668, <br> Vila Mariana, São Paulo</p>
+          <button class="ver-mapa"><a href="#">Ver Mapa</a></button>
+        </div>
+        <div class="preco">
+          <h1 class="valor">R$201,00</h1>
+          <button class="ver-diaria"><a href="compra-hotel-aclimacao.html">Ver Diaria</a></button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="links">
+      <a href="hotel-aclimacao-fotos.html">
+        <h1 class="fotos-link">Fotos</h1>
+      </a>
+      <a href="hotel-aclimacao-info.html">
+        <h1 class="info-link">Info</h1>
+      </a>
+      <a href="hotel-aclimacao-avaliacao.html">
+        <h1 class="avali-link">Avaliação</h1>
+      </a>
+    </div>
+
+    <div class="avaliacoes">
+      <div class="avali-ajuste">
+        <h2>Avaliações</h2>
+        <div class="media-avaliacao">4.5</div>
+        <div class="avaliacao-estrelas">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star-half-stroke"></i>
+        </div>
+        <div class="avaliacao-barra">
+          <div class="barra-avaliacao">
+            <div class="preenchido" style="width: 90%;"></div>
+          </div>
+          <span>90%</span>
+        </div>
+      </div>
+    </div>
+
+
+    <footer>
+      <div class="content">
+        <div class="left">
+          <h1>WorldRover</h1>
+          <div class="termos">
+            <h3>Termos de Serviço</h3>
+            <h3>Política de Privacidade</h3>
+            <h3>Sobre Nós</h3>
+            <h3>Contato</h3>
+            <p>&copy; 2024 WorldRover. Todos os direitos reservados.</p>
+          </div>
+        </div>
+        <div class="right">
+          <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fa-brands fa-instagram fa-2x"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-twitter fa-2x"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-whatsapp fa-2x"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-facebook fa-2x"></i></a>
+          </div>
+          <p>siga-nos em nossas redes sociais</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    let starsValue = 0;
+
+    document.querySelectorAll('.avaliacao-estrelas i').forEach(star => {
+      star.addEventListener('click', function () {
+        starsValue = this.getAttribute('data-value');
+        document.querySelectorAll('.avaliacao-estrelas i').forEach(s => {
+          s.style.color = s.getAttribute('data-value') <= starsValue ? '#fbc02d' : '#ccc';
+        });
+      });
+    });
+
+    function addComentario() {
+      const comentarioInput = document.getElementById('comentario');
+      const comentarioText = comentarioInput.value;
+
+      if (!comentarioText || starsValue === 0) {
+        alert('Por favor, insira um comentário e uma avaliação.');
+        return;
+      }
+
+      const comentarioDiv = document.createElement('div');
+      comentarioDiv.className = 'comentario';
+      comentarioDiv.innerHTML = `
+              <p>${comentarioText}</p>
+              <span>Avaliação: ${starsValue} 
+                  ${'<i class="fa-solid fa-star"></i>'.repeat(starsValue)}
+              </span>
+              <span class="excluir" onclick="this.parentElement.remove();">✖</span>
+          `;
+
+      document.getElementById('lista-comentarios').prepend(comentarioDiv);
+      comentarioInput.value = '';
+
+      // Resetando as estrelas
+      starsValue = 0;
+      document.querySelectorAll('.avaliacao-estrelas i').forEach(s => {
+        s.style.color = '#ccc';
+      });
+    }
+  </script>
+
+
+
+</body>
+
+</html>
